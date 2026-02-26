@@ -1,0 +1,22 @@
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg
+.env
+
+# Data files (too large for GitHub)
+*.npy
+*.csv
+datasets/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Models (too large — use Git LFS or Drive link)
+*.h5
+*.keras
+
+# OS
+.DS_Store
+Thumbs.db
