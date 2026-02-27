@@ -1,0 +1,44 @@
+SPEECH EMOTION + STRESS DETECTION
+Hybrid CNN + BiLSTM Deep Learning System
+==========================================
+
+1. INTRODUCTION
+   Speech carries rich emotional information beyond words.
+   This project builds a system to automatically detect 6 emotions
+   and derive stress levels from raw audio using deep learning.
+
+2. DATASETS
+   Five public datasets combined for robustness:
+   - CREMA-D  : 7,338 files (English, 91 speakers)
+   - TESS     : 4,800 files (English, female speakers)
+   - RAVDESS  : 1,056 files (English, actors)
+   - EMO-DB   :   454 files (German)
+   - SAVEE    :   420 files (English, male speakers)
+   Total      : 14,068 balanced files across 6 emotions
+
+3. METHODOLOGY
+   Feature Extraction: Mel Spectrogram (128 bins) + MFCC (40 coefficients)
+   stacked into (168, 128) combined feature map.
+   Architecture: 3-block CNN for spatial features →
+   2-layer BiLSTM for temporal modeling →
+   Dense classification head.
+   Training: Adam optimizer, label smoothing,
+   EarlyStopping + ReduceLROnPlateau callbacks.
+
+4. RESULTS
+   Test Accuracy  : 70.30%
+   Best Val Acc   : 72.13% (epoch 33)
+   Training epochs: 43 (early stopped)
+   Best emotion   : Neutral (86.2%)
+   Hardest pair   : Fearful/Sad (acoustically similar)
+
+5. STRESS DETECTION
+   Novel stress scoring layer maps emotion probabilities
+   to a continuous stress score using weighted combination.
+   Four levels: Low / Moderate / High / Critical
+
+6. CONCLUSION
+   The hybrid CNN+BiLSTM achieved research-paper-level accuracy
+   (70.3%) on a challenging 5-dataset, 6-class problem.
+   The stress detection layer adds practical real-world value
+   for mental health monitoring and human-computer interaction.
